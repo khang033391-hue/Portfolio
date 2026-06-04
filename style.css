@@ -85,9 +85,15 @@ span {
   color: var(--hover-color);
 }
 
+.fillter-buttons .btn.active{
+  color: var(--hover-color);
+  text-shadow: 0 0 10px rgba(18, 247, 255, 0.6);
+}
+
 #menu-icon {
+  display: none;
   font-size: 1.8rem;
-  z-index: 1000;
+  z-index: 1001;
   cursor: pointer;
   margin-left: 25px;
   background: var(--hover-color);
@@ -354,8 +360,10 @@ section {
 .about-content h2 {
   color: var(--hover-color);
   font-weight: 700;
-  font-size: var(--normal-font);
+  font-size: 2rem;
   margin-bottom: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .about-content p {
@@ -416,7 +424,7 @@ section {
 
 .main-text h2{
   font-weight: 700;
-  font-size: var(--normal-font);
+  font-size: 2rem;
 }
 
 .main-text span{
@@ -548,7 +556,16 @@ section {
   animation: css 5s;
 }
 
-/* ------ skill right -------------- */
+.skill-bar .bar .flutter{
+  width: 82%;
+  animation: flutter 3.5s;
+}
+
+.skill-bar .bar .unity{
+  width: 78%;
+  animation: unity 4.5s;
+}
+
 .professional{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -653,7 +670,7 @@ section {
 
 .port-image img{
   width: 100%;
-  opacity: .5s;
+  opacity: 0.5;
   height: 100%;
   transition: .5s;
 }
@@ -837,6 +854,40 @@ footer a i{
   }
 }
 
+@keyframes flutter{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 82%;
+  }
+}
+
+@keyframes unity{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 78%;
+  }
+}
+
+@keyframes morph2{
+  0%,
+  100%{
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25%{
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50%{
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+  75%{
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
 @keyframes glow{
   0%{
     background: var(--bg-color);
@@ -848,7 +899,155 @@ footer a i{
   }
 }
 
+/* -------------- Responsive Design --------------------- */
+@media (max-width: 1200px) {
+  header {
+    padding: 20px 5%;
+  }
 
+  header.sticky {
+    padding: 12px 5%;
+  }
 
+  section {
+    padding: 100px 5%;
+  }
 
+  footer {
+    padding: 1.5rem 5%;
+  }
+}
+
+@media (max-width: 991px) {
+  .home {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    text-align: center;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .info-box,
+  .btn-box,
+  .social-icons {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social-icons {
+    margin-top: 3rem;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content {
+    order: -1;
+  }
+
+  .skill-main {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  }
+
+  .contact form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    width: 100%;
+    padding: 1rem 5%;
+    background: var(--bg-color);
+    border-top: 1px solid var(--secon-bg-color);
+    flex-direction: column;
+    transition: 0.3s ease;
+  }
+
+  .navbar.open {
+    left: 0;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .home-content h1 {
+    font-size: 2rem;
+  }
+
+  .change-text {
+    font-size: 1.2rem;
+  }
+
+  .btn-box {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .btn-box .btn {
+    width: 100%;
+  }
+
+  .info-about1 {
+    left: 0;
+    top: 60%;
+  }
+
+  .info-about2 {
+    left: 65%;
+    top: 10%;
+  }
+
+  .professional {
+    grid-template-columns: 1fr;
+  }
+
+  .fillter-buttons .btn {
+    margin: 0.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .about .img-about img,
+  .img-box img {
+    max-width: 280px;
+  }
+
+  .info-about1,
+  .info-about2 {
+    width: 75px;
+    height: 75px;
+    font-size: 0.45rem;
+  }
+
+  .port-content h3 {
+    font-size: 1.2rem;
+  }
+}
 
